@@ -2,7 +2,9 @@
  export default {
     content: ["./src/**/*.{html,js}"],
     theme: {
-      extend: {},
+      extend: {
+        robotoslab: ['Roboto Slab', 'serif']
+      },
     },
     plugins: [],
   }

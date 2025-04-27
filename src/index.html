@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="output.css">
@@ -22,6 +23,7 @@
                 bottom: -50px;
             }
         </style>
+        <script src="main.js" type="module"></script>
     </head>
     <body>
         <nav class="h-14 text-gray-400 flex flex-row lg:justify-center bg-black">
@@ -34,7 +36,7 @@
             <button id="button2" class="block lg:hidden"><img src="img/hamburgermenu.jpg" class="w-10 mr-2 z-50 relative"></button>
         </nav>
         <div id="sidebar2" class="sidebar2 bg-black h-full w-full flex flex-col text-gray-400 items-center text-4xl gap-y-4 absolute z-40 pt-2 lg:hidden">
-            <a href="">News</a>
+            <a href="index.html">News</a>
             <a href="">Trending</a>
             <a href="">Sports</a>
         </div>
@@ -80,6 +82,23 @@
                 <p class="text-sm">Last night against the Memphis Grizzlies, Stephen Curry put up 52 points helping Golden State Warriors get their much needed 44th win putting them in 5th place in the western conference standings. Curry also sunk 12 threes shooting from 60% from behind the arc.</p>
             </div>
         </div>
+        <div id="articleDiv"></div>
+        <div class="flex h-[50vh] flex-col bg-cover bg-[url('img/footballpitch.jpg')] items-center pt-5 text-center">
+            <h2 class="text-xl font-bold text-white">Add an article to our site!</h2>
+            <form>
+                <h3 class="text-lg text-white">Enter title of article</h3>
+                <input type="text" class="rounded-md" id="articleTitle">
+                <h3 class="text-lg text-white">Enter main content of article</h3>
+                <textarea class="rounded-md h-20 resize-none" id="articleBody"></textarea>
+                <h3 class="text-lg text-white">Enter url of image</h3>
+                <input type="text" class="rounded-md" id="articleImage">
+                <h3 class="text-lg text-white">Enter Date</h3>
+                <input type="text" class="rounded-md" id="articleDate">
+                <br>
+                <button class="text-white bg-red-500 rounded-md w-20 h-6 mt-2 hover:scale-105 transition-transform" id="articleButton">Submit</button>
+                <p class="text-white text-xl bg-red-500 mt-2 bordered-text rounded-md" id="errorLabel"></p>
+            </form>
+        </div>
         <footer class="min-h-80 bg-black flex flex-wrap justify-evenly items-center">
             <div class="flex flex-col h-full justify-center text-gray-400">
                 <h3 class="text-lg font-bold">Contact Us</h3>
@@ -102,25 +121,10 @@
             <div class="flex h-full items-center flex-col justify-center text-black">
                 <h3 class="text-lg text-gray-400 mb-2">Subscribe to our newsletter!</h3>
                 <div class="flex items-center">
-                <input placeholder="Enter email to subscribe" class="h-5 mr-2 p-2 rounded-sm">
+                <input placeholder="Enter email to subscribe" class="h-7 mr-2 p-2 rounded-md">
                 <button class="bg-red-500 rounded-md px-2 hover:scale-105 transition-transform text-white">Subscribe</button>
                 </div>
             </div>
         </footer>
-        <script>
-            document.addEventListener("DOMContentLoaded", ()=> {
-                const sidebar = document.getElementById("sidebar")
-                const button = document.getElementById("button")
-                const button2 = document.getElementById("button2")
-
-                button.addEventListener("click", () => {
-                    sidebar.classList.toggle("open");
-                });
-
-                button2.addEventListener("click", () => {
-                    sidebar2.classList.toggle("open");
-                })
-            })
-        </script>
     </body>
 </html>

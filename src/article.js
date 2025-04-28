@@ -66,4 +66,3 @@ deleteButton.addEventListener('click', function(event) {
 })
 
 localStorage.setItem("articles", JSON.stringify(articles));
-

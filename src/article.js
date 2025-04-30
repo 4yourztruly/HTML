@@ -1,3 +1,17 @@
+document.addEventListener("DOMContentLoaded", ()=> {
+    const sidebar = document.getElementById("sidebar")
+    const button = document.getElementById("button")
+    const button2 = document.getElementById("button2")
+
+    button.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+    });
+
+    button2.addEventListener("click", () => {
+        sidebar2.classList.toggle("open");
+    });
+});
+
 let articles = JSON.parse(localStorage.getItem("articles")) || [];
 
 const urlParams = new URLSearchParams(window.location.search);

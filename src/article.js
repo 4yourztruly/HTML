@@ -75,8 +75,22 @@ submitButton.addEventListener('click', function(event) {
 deleteButton.addEventListener('click', function(event) {
     articles.splice(articleId, 1);
     localStorage.setItem('articles', JSON.stringify(articles));
-    alert('article deleted');
-    window.location.href = 'index.html';
+    showToast('Article Deleted!');
+    setTimeout(() => {
+        window.location.href = 'index.html'
+    }, 2000);
 })
 
 localStorage.setItem("articles", JSON.stringify(articles));
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'bg-blue-500 text-white px-4 py-2 rounded shadow-md text-center';
+  toast.innerHTML = message;
+
+  document.getElementById('toast-container').appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 1500);
+};

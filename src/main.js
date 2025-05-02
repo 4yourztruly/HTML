@@ -49,6 +49,8 @@ const container = document.getElementById('articleDiv');
 
 const container2 = document.getElementById('defaultArticles');
 
+const form = document.getElementById('form');
+
 defaultArticles(container2, articles);
 
 function defaultArticles(container, articles) {
@@ -106,7 +108,10 @@ articleButton.addEventListener("click", function(event) {
     articles.push(article);
     console.log(articles);
     localStorage.setItem("articles", JSON.stringify(articles));
-    alert("Article Created!");
+    showToast('Article Created!');
+    setTimeout(() => {
+        form.submit();
+    }, 2000);
 });
 
 if(setup ===false) {
@@ -161,3 +166,15 @@ if(container && Array.isArray(articles)) {
         container.appendChild(articleLink);
     });
 }};
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'bg-blue-500 text-white px-4 py-2 rounded shadow-md text-center';
+  toast.innerHTML = message;
+
+  document.getElementById('toast-container').appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 1500);
+};

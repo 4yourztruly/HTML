@@ -51,9 +51,9 @@
         </div>
         <div id="defaultArticles"></div>
         <div id="articleDiv"></div>
-        <div class="flex h-[50vh] flex-col bg-cover bg-[url('img/footballpitch.jpg')] items-center pt-5 text-center">
+        <div class="bg-center flex h-[50vh] flex-col bg-cover bg-[url('img/footballpitch.jpg')] items-center pt-5 text-center">
             <h2 class="text-xl font-bold text-white">Add an article to our site!</h2>
-            <form>
+            <form id="form">
                 <h3 class="text-lg text-white">Enter title of article</h3>
                 <input type="text" class="rounded-md" id="articleTitle">
                 <h3 class="text-lg text-white">Enter main content of article</h3>
@@ -63,8 +63,9 @@
                 <h3 class="text-lg text-white">Enter Date</h3>
                 <input type="text" class="rounded-md" id="articleDate">
                 <br>
-                <button class="text-white bg-red-500 rounded-md w-20 h-6 mt-2 hover:scale-105 transition-transform" id="articleButton">Submit</button>
+                <button type="button" class="text-white bg-red-500 rounded-md w-20 h-6 mt-2 hover:scale-105 transition-transform" id="articleButton">Submit</button>
                 <p class="text-white text-xl bg-red-500 mt-2 bordered-text rounded-md" id="errorLabel"></p>
+                <div id="toast-container" class="text-white"></div>
             </form>
         </div>
         <footer class="min-h-80 bg-black flex flex-wrap justify-evenly items-center">

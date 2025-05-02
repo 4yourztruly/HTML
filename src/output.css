@@ -596,12 +596,12 @@ video {
   position: relative;
 }
 
-.right-1 {
-  right: 0.25rem;
-}
-
 .z-0 {
   z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .z-40 {
@@ -624,6 +624,10 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.ml-10 {
+  margin-left: 2.5rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -634,34 +638,6 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.ml-20 {
-  margin-left: 5rem;
-}
-
-.ml-32 {
-  margin-left: 8rem;
-}
-
-.ml-52 {
-  margin-left: 13rem;
-}
-
-.ml-64 {
-  margin-left: 16rem;
-}
-
-.ml-72 {
-  margin-left: 18rem;
-}
-
-.ml-44 {
-  margin-left: 11rem;
-}
-
-.ml-10 {
-  margin-left: 2.5rem;
 }
 
 .block {
@@ -716,32 +692,20 @@ video {
   height: 40vh;
 }
 
+.h-\[50vh\] {
+  height: 50vh;
+}
+
 .h-\[60vh\] {
   height: 60vh;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-40 {
-  height: 10rem;
 }
 
 .h-auto {
   height: auto;
 }
 
-.h-\[50vh\] {
-  height: 50vh;
-}
-
-.h-\[45vh\] {
-  height: 45vh;
-}
-
-.h-\[42vh\] {
-  height: 42vh;
+.h-full {
+  height: 100%;
 }
 
 .min-h-80 {
@@ -800,16 +764,8 @@ video {
   align-items: center;
 }
 
-.justify-start {
-  justify-content: flex-start;
-}
-
 .justify-center {
   justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
 }
 
 .justify-evenly {
@@ -829,12 +785,8 @@ video {
   row-gap: 1rem;
 }
 
-.gap-y-5 {
-  row-gap: 1.25rem;
-}
-
-.gap-y-2 {
-  row-gap: 0.5rem;
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-md {
@@ -843,11 +795,6 @@ video {
 
 .border-b {
   border-bottom-width: 1px;
-}
-
-.border-gray-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
 }
 
 .border-black {
@@ -860,9 +807,9 @@ video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
-.bg-orange-500 {
+.bg-blue-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
 }
 
 .bg-red-500 {
@@ -875,32 +822,21 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-.bg-\[url\(\'img\/alexisak\.png\'\)\] {
-  background-image: url('img/alexisak.png');
-}
-
-.bg-\[url\(\'img\/courtside\.jpg\'\)\] {
-  background-image: url('img/courtside.jpg');
+.bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[url\(\'img\/footballpitch\.jpg\'\)\] {
   background-image: url('img/footballpitch.jpg');
 }
 
-.bg-\[url\(\'img\/lewandowski\.jpg\'\)\] {
-  background-image: url('img/lewandowski.jpg');
-}
-
-.bg-\[url\(\'img\/rudiger\.jpg\'\)\] {
-  background-image: url('img/rudiger.jpg');
-}
-
-.bg-\[url\(\'img\/stephcurry\.jpg\'\)\] {
-  background-image: url('img/stephcurry.jpg');
-}
-
 .bg-cover {
   background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .p-2 {
@@ -916,6 +852,16 @@ video {
   padding-right: 0.5rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .pb-20 {
   padding-bottom: 5rem;
 }
@@ -926,10 +872,6 @@ video {
 
 .pl-5 {
   padding-left: 1.25rem;
-}
-
-.pt-12 {
-  padding-top: 3rem;
 }
 
 .pt-2 {
@@ -948,12 +890,13 @@ video {
   padding-top: 1.25rem;
 }
 
-.pl-20 {
-  padding-left: 5rem;
-}
-
 .text-center {
   text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
@@ -981,11 +924,6 @@ video {
   line-height: 1.75rem;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -1009,9 +947,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .transition {
@@ -1040,10 +979,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:order-none {
-    order: 0;
-  }
-
   .lg\:block {
     display: block;
   }

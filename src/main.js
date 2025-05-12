@@ -1,30 +1,31 @@
 export function navbar() {
-document.addEventListener("DOMContentLoaded", ()=> {
-    const sidebar = document.getElementById("sidebar")
-    const button = document.getElementById("button")
-    const button2 = document.getElementById("button2")
+    document.addEventListener("DOMContentLoaded", () => {
+        const sidebar = document.getElementById("sidebar")
+        const button = document.getElementById("button")
+        const button2 = document.getElementById("button2")
 
-    button.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
-    });
+        button.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
 
-    button2.addEventListener("click", () => {
-        sidebar2.classList.toggle("open");
+        button2.addEventListener("click", () => {
+            sidebar2.classList.toggle("open");
+        })
     })
-})}
+}
 
 navbar();
 
 class Article {
-  constructor(title, body, image, date) {
-    this.title = title;
-    this.body = body;
-    this.image = image;
-    this.likes = 0;
-    this.dislikes = 0;
-    this.comments = [];
-    this.date = date;
-  }
+    constructor(title, body, image, date) {
+        this.title = title;
+        this.body = body;
+        this.image = image;
+        this.likes = 0;
+        this.dislikes = 0;
+        this.comments = [];
+        this.date = date;
+    }
 }
 
 let setup = false;
@@ -54,8 +55,8 @@ const form = document.getElementById('form');
 defaultArticles(container2, articles);
 
 function defaultArticles(container, articles) {
-    if(setup === true) return;
-    if(articles.length > 0) return;
+    if (setup === true) return;
+    if (articles.length > 0) return;
     let article = new Article('Real Madrid wins 5-4 (agg) against Real Sociedad', 'At midnight after 114 minutes of football Antonio Rudiger headed in the winning goal to advance Real Madrid to the final!', 'img/rudiger.jpg', '2025-03-15');
     let article2 = new Article('Alexander Isak wins player of the month', 'At the end of December after scoring 8 goals and assisting 2 more goals in six Premier league appearances Alexander Isak wins player of the month.', 'img/alexisak.png', '2024-12-15');
     let article3 = new Article('Lewandowski scores brace in Barcelona 4-1 victory against Girona', 'On sunday the polishman scored in the 61st and 77th minute to help Barcelona reclaim a 3 point lead in La Liga.', 'img/lewandowski.jpg', '2025-03-20');
@@ -71,26 +72,26 @@ function defaultArticles(container, articles) {
 }
 
 
-articleButton.addEventListener("click", function(event) {
-    if(articleTitle.value === '' || articleTitle === undefined) {
+articleButton.addEventListener("click", function (event) {
+    if (articleTitle.value === '' || articleTitle === undefined) {
         event.preventDefault();
         errorText.textContent = 'Enter a title!';
         return;
     }
 
-    if(articleBody.value === '' || articleBody.value === undefined) {
+    if (articleBody.value === '' || articleBody.value === undefined) {
         event.preventDefault();
         errorText.textContent = 'Enter a body!';
         return;
     }
 
-    if(articleImage.value === '' || articleImage.value === undefined) {
+    if (articleImage.value === '' || articleImage.value === undefined) {
         event.preventDefault();
         errorText.textContent = 'Enter an image url!';
         return;
     }
 
-    if(articleDate.value === '' || articleDate.value === undefined) {
+    if (articleDate.value === '' || articleDate.value === undefined) {
         event.preventDefault();
         errorText.textContent = 'Enter a date!';
         return;
@@ -98,7 +99,7 @@ articleButton.addEventListener("click", function(event) {
 
     const dateRegex = /^(?!0000)[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 
-    if(!dateRegex.test(articleDate.value)) {
+    if (!dateRegex.test(articleDate.value)) {
         event.preventDefault();
         errorText.textContent = 'Enter a date in yyyy-mm-dd format';
         return;
@@ -114,67 +115,68 @@ articleButton.addEventListener("click", function(event) {
     }, 2000);
 });
 
-if(setup ===false) {
+if (setup === false) {
     articleCreator(container, articles);
 }
 
 function articleCreator(container, articles) {
-if(container && Array.isArray(articles)) {
-    articles.forEach((article, index) => {
-        const isEven = index % 2 === 0;
+    if (container && Array.isArray(articles)) {
+        articles.forEach((article, index) => {
+            const isEven = index % 2 === 0;
 
-        const articleWrapper = document.createElement('div');
-        articleWrapper.className = `flex h-[40vh] flex-col lg:flex-row ${isEven ? 'lg:flex-row-reverse' : ''}`;
+            const articleWrapper = document.createElement('div');
+            articleWrapper.className = `flex h-[40vh] flex-col lg:flex-row ${isEven ? 'lg:flex-row-reverse' : ''}`;
 
-        const articleLink = document.createElement('a');
-        articleLink.href = `article.html?id=${index}`;;
+            const articleLink = document.createElement('a');
+            articleLink.href = `article.html?id=${index}`;;
 
-        articleLink.style.display = 'block';
-        articleLink.style.textDecoration = 'none';
-        
-        const imageDiv = document.createElement('div');
-        imageDiv.className = 'h-full w-full lg:w-2/3 bg-cover';
-        imageDiv.style.backgroundImage = `url('${article.image}')`;
+            articleLink.style.display = 'block';
+            articleLink.style.textDecoration = 'none';
 
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'h-full w-full lg:w-1/3 bg-cover bg-white p-5';
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'h-full w-full lg:w-2/3 bg-cover';
+            imageDiv.style.backgroundImage = `url('${article.image}')`;
 
-        const title = document.createElement('h2');
-        title.className = 'text-lg font-bold';
-        title.textContent = article.title;
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'h-full w-full lg:w-1/3 bg-cover bg-white p-5';
 
-        const dateArticle = document.createElement('h3');
-        dateArticle.className = 'text-sm italic';
-        dateArticle.textContent = article.date;
+            const title = document.createElement('h2');
+            title.className = 'text-lg font-bold';
+            title.textContent = article.title;
 
-        let previewBody = article.body.slice(0,60) + '...';
+            const dateArticle = document.createElement('h3');
+            dateArticle.className = 'text-sm italic';
+            dateArticle.textContent = article.date;
 
-        const body = document.createElement('p');
-        body.textContent = previewBody;
+            let previewBody = article.body.slice(0, 60) + '...';
 
-        contentDiv.appendChild(title);
-        contentDiv.appendChild(dateArticle);
-        contentDiv.appendChild(body);
-        
-        articleWrapper.appendChild(imageDiv);
-        articleWrapper.appendChild(contentDiv);
+            const body = document.createElement('p');
+            body.textContent = previewBody;
 
-        container.appendChild(articleWrapper);
+            contentDiv.appendChild(title);
+            contentDiv.appendChild(dateArticle);
+            contentDiv.appendChild(body);
 
-        articleLink.appendChild(articleWrapper);
+            articleWrapper.appendChild(imageDiv);
+            articleWrapper.appendChild(contentDiv);
 
-        container.appendChild(articleLink);
-    });
-}};
+            container.appendChild(articleWrapper);
+
+            articleLink.appendChild(articleWrapper);
+
+            container.appendChild(articleLink);
+        });
+    }
+};
 
 function showToast(message) {
-  const toast = document.createElement('div');
-  toast.className = 'bg-blue-500 text-white px-4 py-2 rounded shadow-md text-center';
-  toast.innerHTML = message;
+    const toast = document.createElement('div');
+    toast.className = 'bg-blue-500 text-white px-4 py-2 rounded shadow-md text-center';
+    toast.innerHTML = message;
 
-  document.getElementById('toast-container').appendChild(toast);
+    document.getElementById('toast-container').appendChild(toast);
 
-  setTimeout(() => {
-    toast.remove();
-  }, 1500);
+    setTimeout(() => {
+        toast.remove();
+    }, 1500);
 };

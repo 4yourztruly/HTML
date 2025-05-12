@@ -1,99 +1,110 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="output.css">
-        <title>Pitchside Press</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease-in-out;
-            }
 
-            .sidebar.open {
-                transform: translateX(0);
-            }
+<head>
+    <link rel="stylesheet" href="output.css">
+    <title>Pitchside Press</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
 
-            .sidebar2 {
-                bottom:800px;
-                transition: bottom 0.3s ease-in-out;
-            }
+        .sidebar.open {
+            transform: translateX(0);
+        }
 
-            .sidebar2.open {
-                bottom: -50px;
-            }
-        </style>
-        <script src="main.js" type="module"></script>
-    </head>
-    <body>
-        <nav class="h-14 text-gray-400 flex flex-row lg:justify-center bg-black">
-            <button id="button" class="hidden lg:block"><img src="img/hamburgermenu.jpg" class="w-10 ml-2"></button>
-            <div class="flex gap-x-8 justify-center items-center flex-1">
+        .sidebar2 {
+            bottom: 800px;
+            transition: bottom 0.3s ease-in-out;
+        }
+
+        .sidebar2.open {
+            bottom: -50px;
+        }
+    </style>
+    <script src="main.js" type="module"></script>
+</head>
+
+<body>
+    <nav class="h-14 text-gray-400 flex flex-row lg:justify-center bg-black">
+        <button id="button" class="hidden lg:block"><img src="img/hamburgermenu.jpg" class="w-10 ml-2"></button>
+        <div class="flex gap-x-8 justify-center items-center flex-1">
             <a href="index.html" class="hover:text-white hidden lg:block">News</a>
             <a href="" class="hover:text-white hidden lg:block">Trending</a>
             <a href="" class="hover:text-white hidden lg:block">Sports</a>
-            </div>
-            <button id="button2" class="block lg:hidden"><img src="img/hamburgermenu.jpg" class="w-10 mr-2 z-50 relative"></button>
-        </nav>
-        <div id="sidebar2" class="sidebar2 bg-black h-full w-full flex flex-col text-gray-400 items-center text-4xl gap-y-4 absolute z-40 pt-2 lg:hidden">
-            <a href="index.html">News</a>
-            <a href="">Trending</a>
-            <a href="">Sports</a>
         </div>
-        <div id="sidebar" class="sidebar h-full w-[200px] bg-black flex flex-col text-gray-400 gap-y-1 pt-2 pl-2 absolute z-50">
-            <a href="" class="hover:text-white">Settings</a>
-            <a href="" class="hover:text-white">Courtside Coverage</a>
-            <a href="" class="hover:text-white">Help</a>
+        <button id="button2" class="block lg:hidden"><img src="img/hamburgermenu.jpg"
+                class="w-10 mr-2 z-50 relative"></button>
+    </nav>
+    <div id="sidebar2"
+        class="sidebar2 bg-black h-full w-full flex flex-col text-gray-400 items-center text-4xl gap-y-4 absolute z-40 pt-2 lg:hidden">
+        <a href="index.html">News</a>
+        <a href="">Trending</a>
+        <a href="">Sports</a>
+    </div>
+    <div id="sidebar"
+        class="sidebar h-full w-[200px] bg-black flex flex-col text-gray-400 gap-y-1 pt-2 pl-2 absolute z-50">
+        <a href="" class="hover:text-white">Settings</a>
+        <a href="" class="hover:text-white">Courtside Coverage</a>
+        <a href="" class="hover:text-white">Help</a>
+    </div>
+    <div
+        class="h-[60vh] w-full bg-[url('img/footballpitch.jpg')] bg-cover flex-col flex items-center pt-24 relative z-0">
+        <h1 class="text-white font-bold text-4xl">Pitchside Press</h1>
+        <p class="text-lg font-bold text-white">The News Site for all things Football</p>
+    </div>
+    <div id="defaultArticles"></div>
+    <div id="articleDiv"></div>
+    <div
+        class="bg-center flex h-[50vh] flex-col bg-cover bg-[url('img/footballpitch.jpg')] items-center pt-5 text-center">
+        <h2 class="text-xl font-bold text-white">Add an article to our site!</h2>
+        <form id="form">
+            <h3 class="text-lg text-white">Enter title of article</h3>
+            <input type="text" class="rounded-md" id="articleTitle">
+            <h3 class="text-lg text-white">Enter main content of article</h3>
+            <textarea class="rounded-md h-20 resize-none" id="articleBody"></textarea>
+            <h3 class="text-lg text-white">Enter url of image</h3>
+            <input type="text" class="rounded-md" id="articleImage">
+            <h3 class="text-lg text-white">Enter Date</h3>
+            <input type="text" class="rounded-md" id="articleDate">
+            <br>
+            <button type="button"
+                class="text-white bg-red-500 rounded-md w-20 h-6 mt-2 hover:scale-105 transition-transform"
+                id="articleButton">Submit</button>
+            <p class="text-white text-xl bg-red-500 mt-2 bordered-text rounded-md" id="errorLabel"></p>
+            <div id="toast-container" class="text-white"></div>
+        </form>
+    </div>
+    <footer class="min-h-80 bg-black flex flex-wrap justify-evenly items-center">
+        <div class="flex flex-col h-full justify-center text-gray-400">
+            <h3 class="text-lg font-bold">Contact Us</h3>
+            <a href="" class="hover:text-white">About Us</a>
+            <a href="" class="hover:text-white">Blog</a>
+            <a href="" class="hover:text-white">Locations</a>
         </div>
-        <div class="h-[60vh] w-full bg-[url('img/footballpitch.jpg')] bg-cover flex-col flex items-center pt-24 relative z-0">
-            <h1 class="text-white font-bold text-4xl">Pitchside Press</h1>
-            <p class="text-lg font-bold text-white">The News Site for all things Football</p>
+        <div class="flex h-full flex-col justify-center text-gray-400">
+            <h3 class="text-lg font-bold">Work</h3>
+            <a href="" class="hover:text-white">Available Jobs</a>
+            <a href="" class="hover:text-white">Apply for work</a>
+            <a href="" class="hover:text-white">Partnerships</a>
         </div>
-        <div id="defaultArticles"></div>
-        <div id="articleDiv"></div>
-        <div class="bg-center flex h-[50vh] flex-col bg-cover bg-[url('img/footballpitch.jpg')] items-center pt-5 text-center">
-            <h2 class="text-xl font-bold text-white">Add an article to our site!</h2>
-            <form id="form">
-                <h3 class="text-lg text-white">Enter title of article</h3>
-                <input type="text" class="rounded-md" id="articleTitle">
-                <h3 class="text-lg text-white">Enter main content of article</h3>
-                <textarea class="rounded-md h-20 resize-none" id="articleBody"></textarea>
-                <h3 class="text-lg text-white">Enter url of image</h3>
-                <input type="text" class="rounded-md" id="articleImage">
-                <h3 class="text-lg text-white">Enter Date</h3>
-                <input type="text" class="rounded-md" id="articleDate">
-                <br>
-                <button type="button" class="text-white bg-red-500 rounded-md w-20 h-6 mt-2 hover:scale-105 transition-transform" id="articleButton">Submit</button>
-                <p class="text-white text-xl bg-red-500 mt-2 bordered-text rounded-md" id="errorLabel"></p>
-                <div id="toast-container" class="text-white"></div>
-            </form>
+        <div class="flex h-full flex-col justify-center text-gray-400">
+            <h3 class="text-lg font-bold">Socials</h3>
+            <a href="" class="hover:text-white">Instagram</a>
+            <a href="" class="hover:text-white">Twitter</a>
+            <a href="" class="hover:text-white">Facebook</a>
         </div>
-        <footer class="min-h-80 bg-black flex flex-wrap justify-evenly items-center">
-            <div class="flex flex-col h-full justify-center text-gray-400">
-                <h3 class="text-lg font-bold">Contact Us</h3>
-                <a href="" class="hover:text-white">About Us</a>
-                <a href="" class="hover:text-white">Blog</a>
-                <a href="" class="hover:text-white">Locations</a>
-            </div>
-            <div class="flex h-full flex-col justify-center text-gray-400">
-                <h3 class="text-lg font-bold">Work</h3>
-                <a href="" class="hover:text-white">Available Jobs</a>
-                <a href="" class="hover:text-white">Apply for work</a>
-                <a href="" class="hover:text-white">Partnerships</a>
-            </div>
-            <div class="flex h-full flex-col justify-center text-gray-400">
-                <h3 class="text-lg font-bold">Socials</h3>
-                <a href="" class="hover:text-white">Instagram</a>
-                <a href="" class="hover:text-white">Twitter</a>
-                <a href="" class="hover:text-white">Facebook</a>
-            </div>
-            <div class="flex h-full items-center flex-col justify-center text-black">
-                <h3 class="text-lg text-gray-400 mb-2">Subscribe to our newsletter!</h3>
-                <div class="flex items-center">
+        <div class="flex h-full items-center flex-col justify-center text-black">
+            <h3 class="text-lg text-gray-400 mb-2">Subscribe to our newsletter!</h3>
+            <div class="flex items-center">
                 <input placeholder="Enter email to subscribe" class="h-7 mr-2 p-2 rounded-md">
-                <button class="bg-red-500 rounded-md px-2 hover:scale-105 transition-transform text-white">Subscribe</button>
-                </div>
+                <button
+                    class="bg-red-500 rounded-md px-2 hover:scale-105 transition-transform text-white">Subscribe</button>
             </div>
-        </footer>
-    </body>
+        </div>
+    </footer>
+</body>
+
 </html>

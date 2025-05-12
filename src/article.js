@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", ()=> {
+document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.getElementById("sidebar")
     const button = document.getElementById("button")
     const button2 = document.getElementById("button2")
@@ -49,20 +49,20 @@ likeButton.textContent = mainArticle.likes + ' Likes';
 
 dislikeButton.textContent = mainArticle.dislikes + ' Dislikes';
 
-likeButton.addEventListener('click', function(event) {
+likeButton.addEventListener('click', function (event) {
     mainArticle.likes += 1;
     likeButton.textContent = mainArticle.likes + ' Likes';
     localStorage.setItem("articles", JSON.stringify(articles));
 });
 
-dislikeButton.addEventListener('click', function(event) {
+dislikeButton.addEventListener('click', function (event) {
     mainArticle.dislikes += 1;
     dislikeButton.textContent = mainArticle.dislikes + ' Dislikes';
     localStorage.setItem("articles", JSON.stringify(articles));
 });
 
-submitButton.addEventListener('click', function(event) {
-    if(commentSection.value === '' || commentSection.value === undefined) {
+submitButton.addEventListener('click', function (event) {
+    if (commentSection.value === '' || commentSection.value === undefined) {
         console.log('please enter a comment');
         return;
     }
@@ -72,7 +72,7 @@ submitButton.addEventListener('click', function(event) {
     location.reload();
 });
 
-deleteButton.addEventListener('click', function(event) {
+deleteButton.addEventListener('click', function (event) {
     articles.splice(articleId, 1);
     localStorage.setItem('articles', JSON.stringify(articles));
     showToast('Article Deleted!');
@@ -84,13 +84,13 @@ deleteButton.addEventListener('click', function(event) {
 localStorage.setItem("articles", JSON.stringify(articles));
 
 function showToast(message) {
-  const toast = document.createElement('div');
-  toast.className = 'bg-blue-500 text-white px-4 py-2 rounded shadow-md text-center';
-  toast.innerHTML = message;
+    const toast = document.createElement('div');
+    toast.className = 'bg-blue-500 text-white px-4 py-2 rounded shadow-md text-center';
+    toast.innerHTML = message;
 
-  document.getElementById('toast-container').appendChild(toast);
+    document.getElementById('toast-container').appendChild(toast);
 
-  setTimeout(() => {
-    toast.remove();
-  }, 1500);
+    setTimeout(() => {
+        toast.remove();
+    }, 1500);
 };
